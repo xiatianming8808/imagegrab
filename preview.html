@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>图提取 · 结果预览</title>
+  <link rel="stylesheet" href="preview.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2.5" y="4.5" width="19" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="8.5" cy="10" r="1.8" fill="currentColor"/>
+        <path d="M4 17l5-5 4 4 2.5-2.5L20 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      <b>图提取</b>
+      <span class="meta" id="meta">读取结果…</span>
+    </div>
+
+    <div class="tools">
+      <span class="counter" id="counter">已选 0 / 共 0</span>
+      <button data-act="all">全选</button>
+      <button data-act="invert">反选</button>
+      <button data-act="big">仅选大图</button>
+      <button data-act="none">清空</button>
+      <button class="primary" data-act="download" id="dlBtn">下载选中为 PNG</button>
+    </div>
+  </header>
+
+  <div class="hint">
+    <span>提示：勾选后点「下载选中为 PNG」，文件会保存到下载目录的 <code>imagegrab/域名/</code> 下并自动编号。</span>
+    <span class="prog" id="prog"></span>
+  </div>
+
+  <main id="grid" class="grid"></main>
+
+  <div id="empty" class="empty" hidden>
+    <p>没有图片。</p>
+    <p class="sub">回到页面点插件图标重新提取，或把「最小尺寸」调小。</p>
+  </div>
+
+  <script src="preview.js"></script>
+</body>
+</html>

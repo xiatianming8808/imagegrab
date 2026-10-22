@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>图提取 ImageGrab</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="head">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2.5" y="4.5" width="19" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="8.5" cy="10" r="1.8" fill="currentColor"/>
+        <path d="M4 17l5-5 4 4 2.5-2.5L20 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <b>图提取</b>
+        <em>ImageGrab</em>
+      </div>
+    </div>
+    <span class="badge" id="pageBadge">读取中…</span>
+  </header>
+
+  <section class="card">
+    <label class="row">
+      <span>最小尺寸</span>
+      <input id="minSize" type="number" min="0" max="4000" step="50" value="200" />
+      <span class="unit">px</span>
+    </label>
+    <label class="row">
+      <span>额外排除</span>
+      <input id="exclude" type="text" placeholder="用逗号分隔，如: banner,广告" />
+    </label>
+    <p class="tip">长边小于「最小尺寸」的图会被忽略；同时自动排除 favicon、icon、logo、sprite、占位图与 1×1 埋点。</p>
+  </section>
+
+  <button id="grab" class="primary">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    提取本页图片
+  </button>
+
+  <p id="status" class="status"></p>
+
+  <footer class="foot">
+    <span>v1.0.0</span>
+    <a href="#" id="openPreview">打开最近一次结果</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
