@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>【演示】北欧简约陶瓷马克杯 350ml · 商品详情</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f4f4f4; font: 14px/1.7 "PingFang SC", "Microsoft YaHei", sans-serif; color: #222; }
+    .bar { height: 56px; background: #fff; border-bottom: 1px solid #eee; display: flex; align-items: center; padding: 0 24px; gap: 12px; }
+    .bar b { font-size: 16px; color: #ff5000; }
+    .bar span { color: #999; font-size: 12px; }
+    .wrap { width: 1180px; margin: 16px auto; background: #fff; padding: 24px; }
+    .top { display: grid; grid-template-columns: 460px 1fr; gap: 28px; }
+    .gallery-main { width: 460px; height: 460px; object-fit: contain; background: #fafafa; border: 1px solid #f0f0f0; }
+    .thumbs { display: flex; gap: 8px; margin-top: 10px; }
+    .thumbs img { width: 70px; height: 70px; object-fit: cover; border: 1px solid #eee; cursor: pointer; }
+    .thumbs img.on { border-color: #ff5000; }
+    h1 { font-size: 20px; margin: 4px 0 12px; font-weight: 600; }
+    .price { background: #fff7f2; padding: 12px 16px; border-radius: 8px; color: #ff5000; font-size: 26px; font-weight: 700; }
+    .price small { font-size: 13px; color: #999; font-weight: 400; margin-left: 8px; }
+    .attrs { margin: 18px 0; display: grid; gap: 10px; font-size: 13px; color: #666; }
+    .attrs i { color: #333; font-style: normal; }
+    .buy { display: flex; gap: 12px; margin-top: 24px; }
+    .buy button { height: 44px; padding: 0 34px; border: 0; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .buy .cart { background: #ffe4d1; color: #d84315; }
+    .buy .now { background: #ff5000; color: #fff; }
+    .detail { margin-top: 28px; border-top: 1px solid #f0f0f0; padding-top: 20px; }
+    .detail h2 { font-size: 15px; color: #666; font-weight: 500; margin: 0 0 16px; }
+    .detail img { width: 100%; display: block; margin-bottom: 14px; border-radius: 6px; }
+    .note { color: #999; font-size: 12px; padding: 16px 0; }
+    .logo { width: 22px; height: 22px; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="2.5" y="4.5" width="19" height="15" rx="3" fill="none" stroke="#ff5000" stroke-width="1.8"/>
+      <circle cx="8.5" cy="10" r="1.8" fill="#ff5000"/>
+      <path d="M4 17l5-5 4 4 2.5-2.5L20 17" fill="none" stroke="#ff5000" stroke-width="1.8" stroke-linejoin="round"/>
+    </svg>
+    <b>演示商城</b>
+    <span>商品详情页（本地演示，不联网）</span>
+  </div>
+
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <img class="gallery-main" id="main" src="demo/main-1.png" alt="商品主图" />
+        <div class="thumbs">
+          <img class="on" src="demo/main-1.png" alt="" data-src="demo/main-1.png" />
+          <img src="demo/main-2.png" alt="" data-src="demo/main-2.png" data-lazy="demo/main-2.png" />
+          <img src="demo/main-3.png" alt="" data-src="demo/main-3.png" />
+          <img src="demo/sku-1.png" alt="" data-src="demo/sku-1.png" />
+          <img src="demo/sku-2.png" alt="" data-src="demo/sku-2.png" />
+        </div>
+      </div>
+
+      <div>
+        <h1>北欧简约陶瓷马克杯 350ml · 办公室家用咖啡杯</h1>
+        <div class="price">¥ 39.90 <small>已售 1.2 万件 · 满 2 件包邮</small></div>
+        <div class="attrs">
+          <div>颜色：<i>奶白 / 雾灰 / 焦糖 / 墨绿</i></div>
+          <div>容量：<i>350ml</i></div>
+          <div>材质：<i>高温陶瓷，可微波可洗碗机</i></div>
+          <div>发货：<i>48 小时内，江苏南京</i></div>
+        </div>
+        <div class="buy">
+          <button class="cart">加入购物车</button>
+          <button class="now">立即购买</button>
+        </div>
+        <p class="note">本页面为插件演示用静态页，图片与文案均为虚构，不涉及任何真实商品。</p>
+      </div>
+    </div>
+
+    <div class="detail">
+      <h2>商品详情</h2>
+      <img src="demo/detail-1.png" data-src="demo/detail-1.png" alt="细节 1" />
+      <img src="demo/detail-2.png" data-src="demo/detail-2.png" alt="细节 2" />
+      <img src="demo/detail-3.png" data-src="demo/detail-3.png" alt="细节 3" />
+      <p class="note">© 2026 演示商城 · 仅用于浏览器扩展功能演示</p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.thumbs img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        document.querySelectorAll('.thumbs img').forEach(function (i) { i.classList.remove('on'); });
+        img.classList.add('on');
+        document.getElementById('main').src = img.getAttribute('data-src') || img.src;
+      });
+    });
+  </script>
+</body>
+</html>
